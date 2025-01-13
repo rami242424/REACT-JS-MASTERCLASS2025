@@ -1,4 +1,8 @@
 function Coin(){
-    return null
+    return (
+        <div>
+            
+        </div>
+    );
 }
 export default Coin;

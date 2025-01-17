@@ -1,7 +1,7 @@
-import { DefaultTheme } from "styled-components" ;
+import { DefaultTheme } from "styled-components";
 
-export const theme : DefaultTheme = {
-    // bgColor : "white",
-    // textColor : "black",
-    btnColor : "tomato",
+export const theme: DefaultTheme = {
+    bgColor: "white",
+    textColor: "black",
+    btnColor: "tomato",
 }

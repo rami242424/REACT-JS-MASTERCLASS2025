@@ -1,7 +1,6 @@
 function Coin(){
     return (
         <div>
-            
         </div>
     );
 }

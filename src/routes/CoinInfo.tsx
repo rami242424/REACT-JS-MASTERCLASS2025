@@ -1,6 +1,8 @@
 function CoinInfo(){
     return (
-        <div></div>
+        <div>
+            <span>Coin Info</span>
+        </div>
     );
 }
 

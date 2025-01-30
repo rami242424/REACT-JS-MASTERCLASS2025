@@ -1,7 +1,10 @@
 function Coin(){
     return (
         <div>
-            <span>list</span>
+            <span>
+                list
+                <p></p>
+            </span>
         </div>
     );
 }

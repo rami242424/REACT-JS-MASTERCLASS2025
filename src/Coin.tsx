@@ -3,7 +3,7 @@ function Coin(){
         <div>
             <span>
                 list
-                <p>list.map((t) => t.map(t.name) )</p>
+                <p></p>
             </span>
         </div>
     );

@@ -2,8 +2,7 @@ function Coin(){
     return (
         <div>
             <span>
-                list
-                <p></p>
+                coin list
             </span>
         </div>
     );

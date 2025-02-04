@@ -1,22 +1,10 @@
-import styled from "styled-components";
-
-const Father = styled.div`
-  display: flex;
-`;
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-const Circle = styled(Box)`
-  border-radius: 50px;
-`;
+import Circle from "./Circle";
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal" />
+    <div>
+      <Circle bgColor="teal" />
       <Circle bgColor="tomato" />
-    </Father>
+    </div>
   );
 }

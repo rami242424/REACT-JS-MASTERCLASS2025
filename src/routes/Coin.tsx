@@ -45,6 +45,7 @@ const OverviewItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 33%;
   span:first-child {
     font-size: 10px;
     font-weight: 400;
@@ -62,20 +63,22 @@ const Tabs = styled.div`
   margin: 25px 0px;
   gap: 10px;
 `;
+
 const Tab = styled.span<{ isActive: boolean }>`
   text-align: center;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
     props.isActive ? props.theme.accentColor : props.theme.textColor};
   a {
+    padding: 7px 0px;
     display: block;
   }
 `;
+
 interface RouteParams {
   coinId: string;
 }
@@ -137,9 +140,9 @@ interface PriceData {
 }
 
 function Coin() {
-  const [loading, setLoading] = useState(true);
   const { coinId } = useParams<RouteParams>();
   const { state } = useLocation<RouteState>();
+  const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState<InfoData>();
   const [priceInfo, setPriceInfo] = useState<PriceData>();
   const priceMatch = useRouteMatch("/:coinId/price");
@@ -193,6 +196,7 @@ function Coin() {
               <span>{priceInfo?.max_supply}</span>
             </OverviewItem>
           </Overview>
+
           <Tabs>
             <Tab isActive={chartMatch !== null}>
               <Link to={`/${coinId}/chart`}>Chart</Link>
@@ -201,6 +205,7 @@ function Coin() {
               <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
+
           <Switch>
             <Route path={`/:coinId/price`}>
               <Price />

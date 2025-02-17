@@ -1,4 +1,4 @@
 function Chart() {
-    return <h1>Chart</h1>;
+    return <h1>This is coin Chart</h1>;
   }
   export default Chart;

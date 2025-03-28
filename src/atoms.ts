@@ -1,39 +1,31 @@
-import { useRecoilValue } from "recoil";
-import { toDoSelector, toDoState } from "../atoms";
-import CreateToDo from "./CreateToDo";
-import ToDo from "./ToDo";
+import { atom, selector } from "recoil";
 
-function ToDoList() {
-  const [toDo, doing, done] = useRecoilValue(toDoSelector);
-
-  return (
-    <div>
-      <h1>To Dos</h1>
-      <hr />
-      <CreateToDo />
-      <h2>To Do</h2>
-      <ul>
-        {toDo.map((toDo) => (
-          <ToDo key={toDo.id} {...toDo} />
-        ))}
-      </ul>
-      <hr />
-      <h2>Doing</h2>
-      <ul>
-        {doing.map((toDo) => (
-          <ToDo key={toDo.id} {...toDo} />
-        ))}
-      </ul>
-      <hr />
-      <h2>Done</h2>
-      <ul>
-        {done.map((toDo) => (
-          <ToDo key={toDo.id} {...toDo} />
-        ))}
-      </ul>
-      <hr />
-    </div>
-  );
+export enum Categories {
+  "TO_DO" = "TO_DO",
+  "DOING" = "DOING",
+  "DONE" = "DONE",
+}
+export interface IToDo {
+  text: string;
+  id: number;
+  category: Categories;
 }
 
-export default ToDoList;
+export const categoryState = atom<Categories>({
+  key: "category",
+  default: Categories.TO_DO,
+});
+
+export const toDoState = atom<IToDo[]>({
+  key: "toDo",
+  default: [],
+});
+
+export const toDoSelector = selector({
+  key: "toDoSelector",
+  get: ({ get }) => {
+    const toDos = get(toDoState);
+    const category = get(categoryState);
+    return toDos.filter((toDo) => toDo.category === category);
+  },
+});
